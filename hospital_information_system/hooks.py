@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from . import __version__ as app_version
+from frappe import _
 
 app_name = "hospital_information_system"
 app_title = "hospital_information_system"
@@ -111,3 +112,16 @@ app_license = "MIT"
 # 	"frappe.desk.doctype.event.event.get_events": "hospital_information_system.event.get_events"
 # }
 
+portal_menu_items = [
+	{"title": "Appointments", "route": "/appointment", "reference_doctype": "Appointment"},
+]
+
+website_route_rules = [
+	{"from_route": "/appointment", "to_route": "appointment"},
+	{"from_route": "/appointment/<path:name>", "to_route": "appointment",
+		"defaults": {
+			"doctype": "Appointment",
+			"parents": [{"title": _("Appointment"), "name": "appointment"}]
+		}
+	}
+]

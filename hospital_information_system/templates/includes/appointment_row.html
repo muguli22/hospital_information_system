@@ -1,0 +1,16 @@
+<div class="web-list-item transaction-list-item">
+	<a href="/appointment/{{ doc.name }}">
+		<div class="row">
+			<div class="col-sm-5">
+				{{ doc.visit_purpose }}
+				<div class="small text-muted transaction-time"
+					title="{{ frappe.utils.format_datetime(doc.modified, "medium") }}">
+					{{ frappe.utils.format_datetime(doc.modified, "medium") }}
+				</div>
+			</div>
+			<div class="col-sm-4 items-preview text-ellipsis small">
+				{{ doc.doctor_name }}
+			</div>
+		</div>
+	</a>
+</div>
